@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f8f1f2">
-  <meta name="description" content="Estás invitado a celebrar los quince años de Natalia.">
-  <title>Los XV de Natalia</title>
+  <meta name="theme-color" content="#f5eff8">
+  <meta name="description" content="Acompáñame a celebrar mis quince años. Con cariño, Natalia.">
+  <title>Mis XV · Natalia</title>
   <style>
     :root {
       color-scheme: light;
-      --ink: #342b35;
-      --muted: #796c78;
-      --rose: #a85f7d;
-      --rose-dark: #834762;
-      --paper: #fffdfb;
-      --blush: #f8eff1;
-      --gold: #b28d60;
+      --ink: #352c3b;
+      --muted: #796d7b;
+      --plum: #76537e;
+      --plum-dark: #4a354f;
+      --lavender: #eee5f2;
+      --paper: #fffdf9;
+      --gold: #b49a68;
+      --gold-light: #dfd0a6;
     }
 
     * {
@@ -28,293 +29,415 @@
 
     body {
       margin: 0;
-      background: var(--blush);
+      padding: 24px 16px;
+      background:
+        radial-gradient(ellipse at 10% 12%, rgba(255, 255, 255, 0.95), transparent 35%),
+        linear-gradient(145deg, #f8f2f8, #eee5f2 54%, #f8f1ed);
       color: var(--ink);
       font-family: "Segoe UI", Arial, sans-serif;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     .invitation {
-      width: min(100% - 32px, 760px);
-      margin: 32px auto;
+      width: min(100%, 790px);
+      margin: 0 auto;
       overflow: hidden;
-      border: 1px solid rgba(178, 141, 96, 0.4);
-      border-radius: 4px;
+      border: 1px solid rgba(180, 154, 104, 0.72);
       background: var(--paper);
-      box-shadow: 0 22px 70px rgba(74, 46, 62, 0.12);
+      box-shadow: 0 24px 80px rgba(63, 43, 69, 0.16);
     }
 
-    .hero {
+    .cover {
       position: relative;
-      display: grid;
-      min-height: 680px;
-      place-items: center;
+      display: flex;
+      min-height: min(960px, 112svh);
+      align-items: flex-start;
+      justify-content: center;
       overflow: hidden;
-      padding: 72px 24px;
+      padding: clamp(72px, 11vh, 118px) 28px 55px;
+      background: var(--plum-dark);
+      color: #fffdf9;
       text-align: center;
-      background:
-        radial-gradient(ellipse at 10% 12%, rgba(255, 255, 255, 0.86), transparent 34%),
-        radial-gradient(ellipse at 92% 82%, rgba(231, 201, 211, 0.6), transparent 38%),
-        linear-gradient(145deg, #fbf6f2, #f5e8ed 58%, #f7f0ed);
+      isolation: isolate;
     }
 
-    .hero::before,
-    .hero::after {
+    .cover-image,
+    .cover-shade,
+    .cover-frame {
       position: absolute;
-      width: 270px;
-      height: 270px;
-      border: 1px solid rgba(178, 141, 96, 0.46);
-      border-radius: 50%;
-      content: "";
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .cover-image {
+      z-index: -3;
+      object-fit: cover;
+      object-position: center 43%;
+    }
+
+    .cover-shade {
+      z-index: -2;
+      background:
+        linear-gradient(180deg, rgba(26, 19, 32, 0.56) 0%, rgba(32, 22, 38, 0.24) 39%, rgba(30, 21, 35, 0.08) 68%, rgba(27, 19, 32, 0.39) 100%),
+        linear-gradient(90deg, rgba(36, 24, 42, 0.2), transparent 25%, transparent 75%, rgba(36, 24, 42, 0.2));
+    }
+
+    .cover-frame {
+      inset: 18px;
+      width: auto;
+      height: auto;
+      border: 1px solid rgba(235, 219, 174, 0.85);
       pointer-events: none;
     }
 
-    .hero::before {
-      top: -178px;
-      left: -138px;
-      box-shadow: 0 0 0 13px rgba(255, 255, 255, 0.16), 0 0 0 27px rgba(178, 141, 96, 0.12);
+    .cover-frame::before,
+    .cover-frame::after {
+      position: absolute;
+      left: 50%;
+      width: 74px;
+      height: 1px;
+      background: var(--gold-light);
+      content: "";
+      transform: translateX(-50%);
     }
 
-    .hero::after {
-      right: -160px;
-      bottom: -190px;
-      width: 340px;
-      height: 340px;
-      box-shadow: 0 0 0 14px rgba(255, 255, 255, 0.17), 0 0 0 29px rgba(178, 141, 96, 0.12);
+    .cover-frame::before {
+      top: 23px;
     }
 
-    .hero-content {
+    .cover-frame::after {
+      bottom: 23px;
+    }
+
+    .cover-content {
       position: relative;
       z-index: 1;
-      width: min(100%, 490px);
+      width: min(100%, 580px);
+      text-shadow: 0 2px 20px rgba(22, 15, 26, 0.55);
     }
 
     .eyebrow {
-      margin: 0 0 18px;
-      color: var(--rose-dark);
-      font-size: 0.76rem;
+      margin: 0 0 15px;
+      color: var(--gold-light);
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
     }
 
-    .hero h1 {
+    .cover h1 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(4.5rem, 15vw, 8rem);
+      font-size: clamp(4.4rem, 14vw, 7.5rem);
       font-weight: 400;
-      letter-spacing: -0.07em;
-      line-height: 0.95;
+      letter-spacing: -0.055em;
+      line-height: 0.98;
     }
 
-    .hero h1 span {
+    .cover-subtitle {
       display: block;
-      margin-top: 12px;
-      color: var(--rose);
-      font-size: 0.25em;
-      font-style: italic;
-      letter-spacing: 0.1em;
-    }
-
-    .ornament {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      width: 180px;
-      margin: 30px auto;
-      color: var(--gold);
-      font-size: 0.85rem;
-    }
-
-    .ornament::before,
-    .ornament::after {
-      height: 1px;
-      flex: 1;
-      background: rgba(178, 141, 96, 0.6);
-      content: "";
-    }
-
-    .hero-message {
-      max-width: 380px;
-      margin: 0 auto;
-      color: #635660;
+      margin-top: 20px;
+      color: #fff9ee;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.12rem;
+      font-size: clamp(1.05rem, 3.4vw, 1.45rem);
       font-style: italic;
+      letter-spacing: 0.13em;
     }
 
-    .scroll-note {
-      display: inline-block;
-      margin-top: 42px;
-      color: var(--rose-dark);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-decoration: none;
-      text-transform: uppercase;
+    .cover-number {
+      display: inline-flex;
+      width: 48px;
+      height: 48px;
+      align-items: center;
+      justify-content: center;
+      margin-top: 29px;
+      border: 1px solid var(--gold-light);
+      border-radius: 50%;
+      color: var(--gold-light);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.1rem;
+    }
+
+    .cover-note {
+      position: absolute;
+      right: 24px;
+      bottom: 47px;
+      left: 24px;
+      z-index: 1;
+      margin: 0;
+      color: #fffaf3;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      font-style: italic;
+      text-shadow: 0 2px 12px rgba(22, 15, 26, 0.8);
     }
 
     .section {
-      padding: 66px 28px;
+      padding: 76px 32px;
       text-align: center;
+    }
+
+    .intro {
+      position: relative;
+      background:
+        radial-gradient(ellipse at 50% 0, rgba(238, 229, 242, 0.7), transparent 55%),
+        var(--paper);
+    }
+
+    .intro::before,
+    .intro::after {
+      display: block;
+      width: 58px;
+      height: 1px;
+      margin: 0 auto 24px;
+      background: var(--gold);
+      content: "";
+    }
+
+    .intro::after {
+      width: 38px;
+      margin: 25px auto 0;
     }
 
     .section h2 {
       margin: 0;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2rem, 8vw, 3rem);
+      font-size: clamp(2.1rem, 7vw, 3.2rem);
       font-weight: 400;
+      line-height: 1.15;
     }
 
     .section-intro {
-      max-width: 440px;
-      margin: 14px auto 0;
+      max-width: 470px;
+      margin: 18px auto 0;
       color: var(--muted);
     }
 
     .details {
-      border-top: 1px solid #eee3e5;
-      border-bottom: 1px solid #eee3e5;
-      background: #fdf9f7;
+      border-top: 1px solid rgba(180, 154, 104, 0.3);
+      border-bottom: 1px solid rgba(180, 154, 104, 0.3);
+      background: #f7f2f8;
+    }
+
+    .details .eyebrow,
+    .gallery .eyebrow {
+      margin-bottom: 13px;
+      color: var(--plum);
     }
 
     .detail-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 18px;
-      max-width: 510px;
+      max-width: 540px;
       margin: 36px auto 0;
     }
 
     .detail-card {
-      padding: 25px 16px;
-      border: 1px solid rgba(178, 141, 96, 0.35);
-      background: rgba(255, 255, 255, 0.75);
+      padding: 27px 18px;
+      border: 1px solid rgba(180, 154, 104, 0.62);
+      outline: 1px solid rgba(180, 154, 104, 0.2);
+      outline-offset: 4px;
+      background: rgba(255, 253, 249, 0.86);
+    }
+
+    .detail-icon {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--plum);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
     }
 
     .detail-label {
       display: block;
-      margin-bottom: 9px;
-      color: var(--rose-dark);
+      margin-bottom: 7px;
+      color: var(--plum);
       font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
     }
 
     .detail-value {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.18rem;
-    }
-
-    .photo-section {
-      padding-top: 58px;
-      padding-bottom: 58px;
-    }
-
-    .photo-placeholder {
-      display: grid;
-      min-height: 230px;
-      max-width: 500px;
-      margin: 30px auto 0;
-      place-items: center;
-      border: 1px dashed rgba(168, 95, 125, 0.55);
-      background:
-        linear-gradient(135deg, rgba(248, 239, 241, 0.9), rgba(255, 253, 251, 0.92)),
-        repeating-linear-gradient(45deg, transparent, transparent 12px, rgba(168, 95, 125, 0.04) 12px, rgba(168, 95, 125, 0.04) 24px);
-      color: var(--muted);
-    }
-
-    .photo-placeholder span {
-      padding: 18px;
-      font-family: Georgia, "Times New Roman", serif;
       font-size: 1.15rem;
+    }
+
+    .gallery {
+      background: var(--paper);
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      max-width: 590px;
+      margin: 37px auto 0;
+    }
+
+    .photo-card {
+      margin: 0;
+      padding: 9px 9px 14px;
+      border: 1px solid rgba(180, 154, 104, 0.65);
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(63, 43, 69, 0.12);
+      transform: rotate(-1.5deg);
+    }
+
+    .photo-card:nth-child(2) {
+      margin-top: 28px;
+      transform: rotate(1.5deg);
+    }
+
+    .photo-card img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 44%;
+    }
+
+    .photo-card figcaption {
+      padding-top: 10px;
+      color: var(--plum);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 0.95rem;
       font-style: italic;
     }
 
     .closing {
-      padding: 48px 24px 54px;
-      background: #f7edf0;
+      position: relative;
+      padding: 58px 25px 64px;
+      border-top: 1px solid rgba(180, 154, 104, 0.48);
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(255, 255, 255, 0.82), transparent 65%),
+        var(--lavender);
       text-align: center;
     }
 
     .closing p {
-      max-width: 440px;
+      max-width: 450px;
       margin: 0 auto;
-      color: #635660;
+      color: #5f5264;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.25rem;
+      font-size: 1.22rem;
       font-style: italic;
     }
 
     .signature {
       display: block;
-      margin-top: 20px;
-      color: var(--rose-dark);
-      font-size: 0.75rem;
+      margin-top: 21px;
+      color: var(--plum);
+      font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.24em;
       text-transform: uppercase;
     }
 
-    @media (max-width: 520px) {
-      .invitation {
-        width: min(100% - 20px, 760px);
-        margin: 10px auto;
+    @media (max-width: 540px) {
+      body {
+        padding: 10px;
       }
 
-      .hero {
-        min-height: 590px;
+      .cover {
+        min-height: min(830px, 112svh);
+        padding-top: 82px;
+      }
+
+      .cover-frame {
+        inset: 12px;
       }
 
       .section {
-        padding: 54px 20px;
+        padding: 58px 22px;
       }
 
       .detail-grid {
         grid-template-columns: 1fr;
-        max-width: 300px;
+        gap: 19px;
+        max-width: 290px;
       }
 
-      .photo-placeholder {
-        min-height: 190px;
+      .photo-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        max-width: 360px;
+      }
+
+      .photo-card:nth-child(2) {
+        margin-top: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
       }
     }
   </style>
 </head>
 <body>
   <main class="invitation">
-    <section class="hero" aria-labelledby="invitation-title">
-      <div class="hero-content">
-        <p class="eyebrow">Una celebración especial</p>
-        <h1 id="invitation-title">Natalia<span>Mis quince años</span></h1>
-        <div class="ornament" aria-hidden="true">✧</div>
-        <p class="hero-message">Hay momentos que se vuelven inolvidables cuando se comparten con las personas que más queremos.</p>
-        <a class="scroll-note" href="#detalles">Descubre los detalles ↓</a>
+    <header class="cover">
+      <img
+        class="cover-image"
+        src="WhatsApp%20Image%202026-10-25%20at%209.18.22%20PM.jpeg"
+        alt="Natalia con su vestido lila en un jardín"
+        fetchpriority="high">
+      <div class="cover-shade" aria-hidden="true"></div>
+      <div class="cover-frame" aria-hidden="true"></div>
+      <div class="cover-content">
+        <p class="eyebrow">Una noche para soñar</p>
+        <h1 id="invitation-title">Natalia</h1>
+        <span class="cover-subtitle">Mis quince años</span>
+        <span class="cover-number" aria-hidden="true">XV</span>
       </div>
+      <p class="cover-note">Con mucha ilusión, quiero compartir este día contigo</p>
+    </header>
+
+    <section class="section intro" aria-labelledby="welcome-title">
+      <p class="eyebrow">Estás cordialmente invitado/a</p>
+      <h2 id="welcome-title">Celebra conmigo</h2>
+      <p class="section-intro">Hay sueños que se hacen aún más bonitos cuando los compartimos. Me encantaría que me acompañaras en una noche inolvidable.</p>
     </section>
 
     <section class="section details" id="detalles" aria-labelledby="details-title">
-      <p class="eyebrow">Será un placer contar contigo</p>
-      <h2 id="details-title">Acompáñame</h2>
-      <p class="section-intro">Con mucha ilusión, quiero invitarte a celebrar conmigo esta noche tan importante.</p>
+      <p class="eyebrow">Reserva la fecha</p>
+      <h2 id="details-title">Los detalles</h2>
       <div class="detail-grid">
         <div class="detail-card">
+          <span class="detail-icon" aria-hidden="true">✧</span>
           <span class="detail-label">Fecha y hora</span>
           <span class="detail-value">Próximamente</span>
         </div>
         <div class="detail-card">
+          <span class="detail-icon" aria-hidden="true">✧</span>
           <span class="detail-label">Lugar</span>
           <span class="detail-value">Próximamente</span>
         </div>
       </div>
     </section>
 
-    <section class="section photo-section" aria-labelledby="photo-title">
+    <section class="section gallery" aria-labelledby="gallery-title">
       <p class="eyebrow">Un recuerdo para compartir</p>
-      <h2 id="photo-title">Nuestra celebración</h2>
-      <div class="photo-placeholder" role="img" aria-label="Espacio reservado para agregar fotos de Natalia">
-        <span>Aquí pronto habrá fotos de Natalia</span>
+      <h2 id="gallery-title">Mis momentos favoritos</h2>
+      <div class="photo-grid">
+        <figure class="photo-card">
+          <img
+            src="WhatsApp%20Image%202026-10-25%20at%209.18.22%20PM%20(1).jpeg"
+            alt="Natalia posa con su vestido lila entre flores"
+            loading="lazy">
+          <figcaption>Un sueño hecho realidad</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img
+            src="WhatsApp%20Image%202026-10-25%20at%209.18.21%20PM.jpeg"
+            alt="Natalia celebra con un vestido rojo de quinceañera"
+            loading="lazy">
+          <figcaption>Una noche para recordar</figcaption>
+        </figure>
       </div>
     </section>
 
