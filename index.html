@@ -3,20 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f5eff8">
-  <meta name="description" content="Acompáñame a celebrar mis quince años. Con cariño, Natalia.">
+  <meta name="theme-color" content="#f5e8fb">
+  <meta name="description" content="Estás invitado a celebrar los quince años de Natalia.">
   <title>Mis XV · Natalia</title>
   <style>
     :root {
       color-scheme: light;
-      --ink: #352c3b;
-      --muted: #796d7b;
-      --plum: #76537e;
-      --plum-dark: #4a354f;
-      --lavender: #eee5f2;
-      --paper: #fffdf9;
-      --gold: #b49a68;
-      --gold-light: #dfd0a6;
+      --ink: #49304d;
+      --plum: #765080;
+      --plum-dark: #4a2d53;
+      --lavender: #d7b8ed;
+      --lavender-light: #f5eafa;
+      --paper: #fff9f5;
+      --gold: #b28a4f;
+      --gold-light: #e5ca91;
+      --rose: #b95788;
     }
 
     * {
@@ -29,266 +30,387 @@
 
     body {
       margin: 0;
-      padding: 24px 16px;
+      padding: 28px 16px;
       background:
-        radial-gradient(ellipse at 10% 12%, rgba(255, 255, 255, 0.95), transparent 35%),
-        linear-gradient(145deg, #f8f2f8, #eee5f2 54%, #f8f1ed);
+        radial-gradient(ellipse at 8% 12%, rgba(255, 255, 255, 0.9), transparent 34%),
+        linear-gradient(145deg, #f8effb, #e8d7f0 55%, #fbecf3);
       color: var(--ink);
       font-family: "Segoe UI", Arial, sans-serif;
-      line-height: 1.65;
+      line-height: 1.55;
     }
 
     .invitation {
+      position: relative;
       width: min(100%, 790px);
       margin: 0 auto;
       overflow: hidden;
-      border: 1px solid rgba(180, 154, 104, 0.72);
+      border: 1px solid rgba(178, 138, 79, 0.72);
       background: var(--paper);
-      box-shadow: 0 24px 80px rgba(63, 43, 69, 0.16);
+      box-shadow: 0 24px 80px rgba(63, 43, 69, 0.18);
+    }
+
+    .invitation::before {
+      position: absolute;
+      z-index: 4;
+      inset: 12px;
+      border: 1px solid rgba(178, 138, 79, 0.48);
+      content: "";
+      pointer-events: none;
     }
 
     .cover {
       position: relative;
-      display: flex;
-      min-height: min(960px, 112svh);
-      align-items: flex-start;
-      justify-content: center;
       overflow: hidden;
-      padding: clamp(72px, 11vh, 118px) 28px 55px;
-      background: var(--plum-dark);
-      color: #fffdf9;
-      text-align: center;
-      isolation: isolate;
-    }
-
-    .cover-image,
-    .cover-shade,
-    .cover-frame {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-    }
-
-    .cover-image {
-      z-index: -3;
-      object-fit: cover;
-      object-position: center 43%;
-    }
-
-    .cover-shade {
-      z-index: -2;
+      padding: 53px 45px 35px;
       background:
-        linear-gradient(180deg, rgba(26, 19, 32, 0.56) 0%, rgba(32, 22, 38, 0.24) 39%, rgba(30, 21, 35, 0.08) 68%, rgba(27, 19, 32, 0.39) 100%),
-        linear-gradient(90deg, rgba(36, 24, 42, 0.2), transparent 25%, transparent 75%, rgba(36, 24, 42, 0.2));
+        radial-gradient(ellipse at 51% 42%, rgba(255, 255, 255, 0.8), transparent 48%),
+        linear-gradient(165deg, #f4e3fb 0%, #fff5f5 62%, #ebd6f1 100%);
+      text-align: center;
     }
 
-    .cover-frame {
-      inset: 18px;
-      width: auto;
+    .floral-corner {
+      position: absolute;
+      z-index: 1;
+      width: clamp(105px, 21vw, 175px);
       height: auto;
-      border: 1px solid rgba(235, 219, 174, 0.85);
       pointer-events: none;
     }
 
-    .cover-frame::before,
-    .cover-frame::after {
-      position: absolute;
-      left: 50%;
-      width: 74px;
-      height: 1px;
-      background: var(--gold-light);
-      content: "";
-      transform: translateX(-50%);
+    .floral-corner--top-left {
+      top: 0;
+      left: 0;
     }
 
-    .cover-frame::before {
-      top: 23px;
+    .floral-corner--top-right {
+      top: 0;
+      right: 0;
+      transform: scaleX(-1);
     }
 
-    .cover-frame::after {
-      bottom: 23px;
+    .floral-corner--bottom-left {
+      bottom: 0;
+      left: 0;
+      transform: scaleY(-1);
     }
 
-    .cover-content {
+    .floral-corner--bottom-right {
+      right: 0;
+      bottom: 0;
+      transform: scale(-1);
+    }
+
+    .cover-kicker {
       position: relative;
-      z-index: 1;
-      width: min(100%, 580px);
-      text-shadow: 0 2px 20px rgba(22, 15, 26, 0.55);
-    }
-
-    .eyebrow {
-      margin: 0 0 15px;
-      color: var(--gold-light);
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.3em;
-      text-transform: uppercase;
-    }
-
-    .cover h1 {
-      margin: 0;
+      z-index: 2;
+      max-width: 290px;
+      margin: 0 0 7px auto;
+      color: var(--plum-dark);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(4.4rem, 14vw, 7.5rem);
-      font-weight: 400;
-      letter-spacing: -0.055em;
-      line-height: 0.98;
-    }
-
-    .cover-subtitle {
-      display: block;
-      margin-top: 20px;
-      color: #fff9ee;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(1.05rem, 3.4vw, 1.45rem);
+      font-size: clamp(1.05rem, 3.2vw, 1.55rem);
       font-style: italic;
-      letter-spacing: 0.13em;
+      line-height: 1.15;
+      text-shadow: 0 1px 0 #fff;
     }
 
-    .cover-number {
-      display: inline-flex;
-      width: 48px;
-      height: 48px;
-      align-items: center;
-      justify-content: center;
-      margin-top: 29px;
-      border: 1px solid var(--gold-light);
-      border-radius: 50%;
-      color: var(--gold-light);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.1rem;
+    .hero-collage {
+      position: relative;
+      width: min(100%, 610px);
+      height: clamp(365px, 67vw, 525px);
+      margin: 0 auto;
+      isolation: isolate;
     }
 
-    .cover-note {
+    .portrait {
       position: absolute;
-      right: 24px;
-      bottom: 47px;
-      left: 24px;
-      z-index: 1;
+      overflow: hidden;
       margin: 0;
-      color: #fffaf3;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1rem;
-      font-style: italic;
-      text-shadow: 0 2px 12px rgba(22, 15, 26, 0.8);
+      border: 4px solid #fff9f5;
+      outline: 1px solid rgba(178, 138, 79, 0.86);
+      background: #d8c0e8;
+      box-shadow: 0 10px 24px rgba(72, 44, 80, 0.22);
     }
 
-    .section {
-      padding: 76px 32px;
+    .portrait img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .portrait--center {
+      z-index: 1;
+      top: 4%;
+      left: 22%;
+      width: 56%;
+      height: 87%;
+      border-radius: 48% 48% 8px 8px;
+    }
+
+    .portrait--center img {
+      object-position: center 18%;
+    }
+
+    .portrait--left,
+    .portrait--right {
+      z-index: 2;
+      bottom: 0;
+      width: 35%;
+      height: 59%;
+      border-radius: 48% 48% 5px 5px;
+    }
+
+    .portrait--left {
+      left: 0;
+      transform: rotate(-4deg);
+    }
+
+    .portrait--right {
+      right: 0;
+      transform: rotate(4deg);
+    }
+
+    .portrait--left img {
+      object-position: center 20%;
+    }
+
+    .portrait--right img {
+      object-position: center 20%;
+    }
+
+    .birthday-title {
+      position: absolute;
+      z-index: 3;
+      top: 12%;
+      right: -3%;
+      color: #a77a34;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.5rem, 5vw, 2.7rem);
+      font-style: italic;
+      line-height: 1.03;
+      text-align: right;
+      text-shadow: 0 1px #fff, 0 2px 6px rgba(255, 255, 255, 0.85);
+    }
+
+    .birthday-title strong {
+      display: block;
+      font-size: 1.48em;
+      font-weight: 400;
+    }
+
+    .crown {
+      display: block;
+      margin-bottom: -2px;
+      color: #b58b3e;
+      font-size: 0.7em;
+      font-style: normal;
       text-align: center;
     }
 
-    .intro {
-      position: relative;
-      background:
-        radial-gradient(ellipse at 50% 0, rgba(238, 229, 242, 0.7), transparent 55%),
-        var(--paper);
+    .butterfly {
+      position: absolute;
+      z-index: 3;
+      width: 34px;
+      height: 34px;
+      fill: #8d5ca7;
+      filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.8));
     }
 
-    .intro::before,
-    .intro::after {
-      display: block;
-      width: 58px;
+    .butterfly--one {
+      top: 16%;
+      left: 8%;
+      transform: rotate(-18deg);
+    }
+
+    .butterfly--two {
+      top: 44%;
+      right: 7%;
+      width: 27px;
+      transform: rotate(15deg);
+    }
+
+    .butterfly--three {
+      bottom: 7%;
+      left: 17%;
+      width: 25px;
+      transform: rotate(12deg);
+    }
+
+    .name-plaque {
+      position: relative;
+      z-index: 3;
+      width: min(82%, 455px);
+      min-height: 104px;
+      display: grid;
+      place-items: center;
+      margin: -35px auto 8px;
+      padding: 12px 25px 17px;
+      border: 2px solid #d5b16b;
+      border-radius: 48% / 50%;
+      outline: 1px solid rgba(178, 138, 79, 0.55);
+      outline-offset: 4px;
+      background: linear-gradient(120deg, #fff8f1, #fffefa 48%, #f9e9ee);
+      box-shadow: 0 7px 18px rgba(80, 48, 82, 0.12);
+      color: var(--plum-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3rem, 11vw, 5.3rem);
+      font-style: italic;
+      line-height: 1;
+      text-shadow: 0 1px #fff;
+    }
+
+    .name-plaque::before {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      color: #b58b3e;
+      content: "♛";
+      font-size: 2rem;
+      font-style: normal;
+      transform: translateX(-50%);
+    }
+
+    .cover-message {
+      position: relative;
+      z-index: 2;
+      max-width: 430px;
+      margin: 23px auto 0;
+      color: #604769;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      font-style: italic;
+      line-height: 1.35;
+    }
+
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      margin: 17px auto 11px;
+      color: var(--gold);
+    }
+
+    .divider::before,
+    .divider::after {
+      width: 55px;
       height: 1px;
-      margin: 0 auto 24px;
-      background: var(--gold);
+      background: rgba(178, 138, 79, 0.68);
       content: "";
     }
 
-    .intro::after {
-      width: 38px;
-      margin: 25px auto 0;
-    }
-
-    .section h2 {
-      margin: 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(2.1rem, 7vw, 3.2rem);
-      font-weight: 400;
-      line-height: 1.15;
-    }
-
-    .section-intro {
-      max-width: 470px;
-      margin: 18px auto 0;
-      color: var(--muted);
-    }
-
-    .details {
-      border-top: 1px solid rgba(180, 154, 104, 0.3);
-      border-bottom: 1px solid rgba(180, 154, 104, 0.3);
-      background: #f7f2f8;
-    }
-
-    .details .eyebrow,
-    .gallery .eyebrow {
-      margin-bottom: 13px;
-      color: var(--plum);
-    }
-
-    .detail-grid {
+    .event-details {
+      position: relative;
+      z-index: 2;
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-      max-width: 540px;
-      margin: 36px auto 0;
+      grid-template-columns: 1fr 1fr 1.45fr;
+      width: min(100%, 550px);
+      margin: 18px auto 0;
+      color: var(--plum-dark);
     }
 
-    .detail-card {
-      padding: 27px 18px;
-      border: 1px solid rgba(180, 154, 104, 0.62);
-      outline: 1px solid rgba(180, 154, 104, 0.2);
-      outline-offset: 4px;
-      background: rgba(255, 253, 249, 0.86);
+    .event-item {
+      min-width: 0;
+      padding: 7px 13px;
+      border-right: 1px solid rgba(118, 80, 128, 0.38);
     }
 
-    .detail-icon {
+    .event-item:last-child {
+      border-right: 0;
+    }
+
+    .event-icon {
       display: block;
-      margin-bottom: 10px;
+      height: 29px;
       color: var(--plum);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.35rem;
+      font-size: 1.25rem;
+      line-height: 1;
     }
 
-    .detail-label {
+    .event-label {
       display: block;
-      margin-bottom: 7px;
-      color: var(--plum);
-      font-size: 0.7rem;
+      margin-bottom: 4px;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
     }
 
-    .detail-value {
+    .event-value {
+      display: block;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.15rem;
+      font-size: 0.92rem;
+      line-height: 1.35;
+    }
+
+    .rsvp {
+      position: relative;
+      z-index: 2;
+      margin: 27px 0 11px;
+      color: var(--plum-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.7rem, 6vw, 2.8rem);
+      font-style: italic;
+      line-height: 1.1;
+    }
+
+    .rsvp-heart {
+      display: inline-block;
+      margin-left: 5px;
+      color: var(--rose);
+      font-size: 0.8em;
     }
 
     .gallery {
-      background: var(--paper);
+      padding: 54px 32px 63px;
+      border-top: 1px solid rgba(178, 138, 79, 0.45);
+      background:
+        radial-gradient(ellipse at 50% 0, rgba(226, 203, 240, 0.55), transparent 58%),
+        var(--paper);
+      text-align: center;
+    }
+
+    .section-kicker {
+      margin: 0 0 9px;
+      color: var(--plum);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .gallery h2 {
+      margin: 0;
+      color: var(--plum-dark);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.8rem, 6vw, 2.6rem);
+      font-weight: 400;
     }
 
     .photo-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 22px;
-      max-width: 590px;
-      margin: 37px auto 0;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: start;
+      gap: 20px;
+      max-width: 640px;
+      margin: 32px auto 0;
     }
 
     .photo-card {
       margin: 0;
-      padding: 9px 9px 14px;
-      border: 1px solid rgba(180, 154, 104, 0.65);
+      padding: 7px 7px 12px;
+      border: 1px solid rgba(178, 138, 79, 0.68);
       background: #fff;
-      box-shadow: 0 12px 30px rgba(63, 43, 69, 0.12);
-      transform: rotate(-1.5deg);
+      box-shadow: 0 9px 22px rgba(63, 43, 69, 0.14);
+      transform: rotate(-2deg);
     }
 
     .photo-card:nth-child(2) {
-      margin-top: 28px;
-      transform: rotate(1.5deg);
+      margin-top: 19px;
+      transform: rotate(1deg);
+    }
+
+    .photo-card:nth-child(3) {
+      transform: rotate(2deg);
     }
 
     .photo-card img {
@@ -296,74 +418,133 @@
       width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: cover;
-      object-position: center 44%;
+      object-position: center 22%;
     }
 
     .photo-card figcaption {
-      padding-top: 10px;
+      padding-top: 8px;
       color: var(--plum);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 0.95rem;
+      font-size: 0.78rem;
       font-style: italic;
     }
 
     .closing {
-      position: relative;
-      padding: 58px 25px 64px;
-      border-top: 1px solid rgba(180, 154, 104, 0.48);
-      background:
-        radial-gradient(ellipse at 50% 100%, rgba(255, 255, 255, 0.82), transparent 65%),
-        var(--lavender);
+      padding: 35px 20px 44px;
+      border-top: 1px solid rgba(178, 138, 79, 0.4);
+      background: linear-gradient(135deg, #f6eafa, #fff5f4 52%, #eadbf2);
       text-align: center;
     }
 
     .closing p {
-      max-width: 450px;
+      max-width: 430px;
       margin: 0 auto;
-      color: #5f5264;
+      color: #604769;
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1.22rem;
+      font-size: 1.05rem;
       font-style: italic;
     }
 
     .signature {
       display: block;
-      margin-top: 21px;
+      margin-top: 12px;
       color: var(--plum);
-      font-size: 0.72rem;
+      font-size: 0.68rem;
       font-weight: 700;
-      letter-spacing: 0.24em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
     }
 
-    @media (max-width: 540px) {
+    @media (max-width: 560px) {
       body {
-        padding: 10px;
+        padding: 9px;
+      }
+
+      .invitation::before {
+        inset: 8px;
       }
 
       .cover {
-        min-height: min(830px, 112svh);
-        padding-top: 82px;
+        padding: 43px 20px 28px;
       }
 
-      .cover-frame {
-        inset: 12px;
+      .cover-kicker {
+        max-width: 225px;
+        margin-right: 0;
       }
 
-      .section {
-        padding: 58px 22px;
+      .hero-collage {
+        height: clamp(330px, 92vw, 445px);
       }
 
-      .detail-grid {
-        grid-template-columns: 1fr;
-        gap: 19px;
-        max-width: 290px;
+      .portrait {
+        border-width: 3px;
+      }
+
+      .birthday-title {
+        top: 13%;
+        right: -4%;
+        font-size: clamp(1.4rem, 6vw, 2rem);
+      }
+
+      .name-plaque {
+        width: 86%;
+        min-height: 84px;
+        margin-top: -28px;
+      }
+
+      .cover-message {
+        margin-top: 21px;
+      }
+
+      .event-item {
+        padding: 7px 6px;
+      }
+
+      .event-label {
+        font-size: 0.57rem;
+        letter-spacing: 0.1em;
+      }
+
+      .event-value {
+        font-size: 0.82rem;
+      }
+
+      .gallery {
+        padding: 46px 22px 50px;
+      }
+
+      .photo-grid {
+        gap: 10px;
+      }
+
+      .photo-card {
+        padding: 5px 5px 9px;
+      }
+
+      .photo-card figcaption {
+        font-size: 0.68rem;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .event-details {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 12px;
+      }
+
+      .event-item:nth-child(2) {
+        border-right: 0;
+      }
+
+      .event-item:last-child {
+        grid-column: 1 / -1;
       }
 
       .photo-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
-        max-width: 360px;
+        max-width: 230px;
+        gap: 16px;
       }
 
       .photo-card:nth-child(2) {
@@ -380,63 +561,123 @@
 </head>
 <body>
   <main class="invitation">
-    <header class="cover">
-      <img
-        class="cover-image"
-        src="WhatsApp%20Image%202026-10-25%20at%209.18.22%20PM.jpeg"
-        alt="Natalia con su vestido lila en un jardín"
-        fetchpriority="high">
-      <div class="cover-shade" aria-hidden="true"></div>
-      <div class="cover-frame" aria-hidden="true"></div>
-      <div class="cover-content">
-        <p class="eyebrow">Una noche para soñar</p>
-        <h1 id="invitation-title">Natalia</h1>
-        <span class="cover-subtitle">Mis quince años</span>
-        <span class="cover-number" aria-hidden="true">XV</span>
-      </div>
-      <p class="cover-note">Con mucha ilusión, quiero compartir este día contigo</p>
-    </header>
+    <section class="cover" aria-labelledby="invitation-title">
+      <svg class="floral-corner floral-corner--top-left" viewBox="0 0 170 150" aria-hidden="true">
+        <path d="M5 6c38 3 52 24 68 56M7 8c5 30 18 42 39 52M13 18c26-3 40 7 52 22M20 31c-2 22 7 35 21 47" fill="none" stroke="#68834f" stroke-width="3"/>
+        <path d="M38 43c-15-3-23-12-25-24 15 1 24 8 25 24m18 10c13-12 26-14 40-8-9 13-22 17-40 8m-23 27c-13 0-23-7-28-19 15-3 25 3 28 19" fill="#9fb176"/>
+        <g fill="#bc75ad"><circle cx="23" cy="27" r="13"/><circle cx="14" cy="35" r="11"/><circle cx="31" cy="38" r="11"/><circle cx="22" cy="45" r="12"/><circle cx="22" cy="36" r="5" fill="#f2d794"/></g>
+        <g fill="#d894bf"><circle cx="71" cy="66" r="11"/><circle cx="63" cy="73" r="9"/><circle cx="78" cy="76" r="9"/><circle cx="71" cy="81" r="10"/><circle cx="71" cy="74" r="4" fill="#f3d795"/></g>
+        <g fill="#8f60a0"><circle cx="48" cy="21" r="9"/><circle cx="41" cy="27" r="8"/><circle cx="54" cy="30" r="8"/><circle cx="48" cy="35" r="9"/><circle cx="48" cy="28" r="3.5" fill="#f4dc9e"/></g>
+      </svg>
+      <svg class="floral-corner floral-corner--top-right" viewBox="0 0 170 150" aria-hidden="true">
+        <path d="M5 6c38 3 52 24 68 56M7 8c5 30 18 42 39 52M13 18c26-3 40 7 52 22M20 31c-2 22 7 35 21 47" fill="none" stroke="#68834f" stroke-width="3"/>
+        <path d="M38 43c-15-3-23-12-25-24 15 1 24 8 25 24m18 10c13-12 26-14 40-8-9 13-22 17-40 8m-23 27c-13 0-23-7-28-19 15-3 25 3 28 19" fill="#9fb176"/>
+        <g fill="#bc75ad"><circle cx="23" cy="27" r="13"/><circle cx="14" cy="35" r="11"/><circle cx="31" cy="38" r="11"/><circle cx="22" cy="45" r="12"/><circle cx="22" cy="36" r="5" fill="#f2d794"/></g>
+        <g fill="#d894bf"><circle cx="71" cy="66" r="11"/><circle cx="63" cy="73" r="9"/><circle cx="78" cy="76" r="9"/><circle cx="71" cy="81" r="10"/><circle cx="71" cy="74" r="4" fill="#f3d795"/></g>
+        <g fill="#8f60a0"><circle cx="48" cy="21" r="9"/><circle cx="41" cy="27" r="8"/><circle cx="54" cy="30" r="8"/><circle cx="48" cy="35" r="9"/><circle cx="48" cy="28" r="3.5" fill="#f4dc9e"/></g>
+      </svg>
 
-    <section class="section intro" aria-labelledby="welcome-title">
-      <p class="eyebrow">Estás cordialmente invitado/a</p>
-      <h2 id="welcome-title">Celebra conmigo</h2>
-      <p class="section-intro">Hay sueños que se hacen aún más bonitos cuando los compartimos. Me encantaría que me acompañaras en una noche inolvidable.</p>
+      <p class="cover-kicker">Estás invitado(a) a<br>celebrar conmigo</p>
+
+      <div class="hero-collage" aria-label="Retratos de Natalia con sus vestidos de quinceañera">
+        <figure class="portrait portrait--center">
+          <img
+            src="WhatsApp%20Image%202026-10-25%20at%209.18.21%20PM.jpeg"
+            alt="Natalia con su vestido rojo de quinceañera"
+            fetchpriority="high">
+        </figure>
+        <figure class="portrait portrait--left">
+          <img
+            src="WhatsApp%20Image%202026-10-25%20at%209.18.22%20PM.jpeg"
+            alt="Natalia con su vestido lila"
+            fetchpriority="high">
+        </figure>
+        <figure class="portrait portrait--right">
+          <img
+            src="WhatsApp%20Image%202026-10-25%20at%209.18.22%20PM%20(1).jpeg"
+            alt="Natalia posa con su vestido lila"
+            fetchpriority="high">
+        </figure>
+
+        <div class="birthday-title" aria-label="Mis 15 años">
+          <span class="crown" aria-hidden="true">♛</span>
+          Mis<strong>15 Años</strong>
+        </div>
+        <svg class="butterfly butterfly--one" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M19 19C13 5 2 6 5 16c2 6 8 7 14 6-7 2-10 9-5 12 5 3 8-4 7-11 0 7 4 14 9 10 5-4 1-10-6-12 7 0 12-3 12-8 0-10-11-8-17 6Z"/>
+        </svg>
+        <svg class="butterfly butterfly--two" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M19 19C13 5 2 6 5 16c2 6 8 7 14 6-7 2-10 9-5 12 5 3 8-4 7-11 0 7 4 14 9 10 5-4 1-10-6-12 7 0 12-3 12-8 0-10-11-8-17 6Z"/>
+        </svg>
+        <svg class="butterfly butterfly--three" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M19 19C13 5 2 6 5 16c2 6 8 7 14 6-7 2-10 9-5 12 5 3 8-4 7-11 0 7 4 14 9 10 5-4 1-10-6-12 7 0 12-3 12-8 0-10-11-8-17 6Z"/>
+        </svg>
+      </div>
+
+      <h1 class="name-plaque" id="invitation-title">Natalia</h1>
+      <p class="cover-message">Será un honor contar con tu presencia<br>en esta fecha tan especial para mí.</p>
+      <div class="divider" aria-hidden="true">♥</div>
+
+      <div class="event-details" aria-label="Detalles de la celebración">
+        <div class="event-item">
+          <span class="event-icon" aria-hidden="true">▦</span>
+          <span class="event-label">Fecha</span>
+          <span class="event-value">Próximamente</span>
+        </div>
+        <div class="event-item">
+          <span class="event-icon" aria-hidden="true">◷</span>
+          <span class="event-label">Hora</span>
+          <span class="event-value">Próximamente</span>
+        </div>
+        <div class="event-item">
+          <span class="event-icon" aria-hidden="true">⌖</span>
+          <span class="event-label">Lugar</span>
+          <span class="event-value">Próximamente</span>
+        </div>
+      </div>
+
+      <p class="rsvp">¡No faltes! <span class="rsvp-heart" aria-hidden="true">♡</span></p>
+
+      <svg class="floral-corner floral-corner--bottom-left" viewBox="0 0 170 150" aria-hidden="true">
+        <path d="M5 6c38 3 52 24 68 56M7 8c5 30 18 42 39 52M13 18c26-3 40 7 52 22M20 31c-2 22 7 35 21 47" fill="none" stroke="#68834f" stroke-width="3"/>
+        <path d="M38 43c-15-3-23-12-25-24 15 1 24 8 25 24m18 10c13-12 26-14 40-8-9 13-22 17-40 8m-23 27c-13 0-23-7-28-19 15-3 25 3 28 19" fill="#9fb176"/>
+        <g fill="#bc75ad"><circle cx="23" cy="27" r="13"/><circle cx="14" cy="35" r="11"/><circle cx="31" cy="38" r="11"/><circle cx="22" cy="45" r="12"/><circle cx="22" cy="36" r="5" fill="#f2d794"/></g>
+        <g fill="#d894bf"><circle cx="71" cy="66" r="11"/><circle cx="63" cy="73" r="9"/><circle cx="78" cy="76" r="9"/><circle cx="71" cy="81" r="10"/><circle cx="71" cy="74" r="4" fill="#f3d795"/></g>
+        <g fill="#8f60a0"><circle cx="48" cy="21" r="9"/><circle cx="41" cy="27" r="8"/><circle cx="54" cy="30" r="8"/><circle cx="48" cy="35" r="9"/><circle cx="48" cy="28" r="3.5" fill="#f4dc9e"/></g>
+      </svg>
+      <svg class="floral-corner floral-corner--bottom-right" viewBox="0 0 170 150" aria-hidden="true">
+        <path d="M5 6c38 3 52 24 68 56M7 8c5 30 18 42 39 52M13 18c26-3 40 7 52 22M20 31c-2 22 7 35 21 47" fill="none" stroke="#68834f" stroke-width="3"/>
+        <path d="M38 43c-15-3-23-12-25-24 15 1 24 8 25 24m18 10c13-12 26-14 40-8-9 13-22 17-40 8m-23 27c-13 0-23-7-28-19 15-3 25 3 28 19" fill="#9fb176"/>
+        <g fill="#bc75ad"><circle cx="23" cy="27" r="13"/><circle cx="14" cy="35" r="11"/><circle cx="31" cy="38" r="11"/><circle cx="22" cy="45" r="12"/><circle cx="22" cy="36" r="5" fill="#f2d794"/></g>
+        <g fill="#d894bf"><circle cx="71" cy="66" r="11"/><circle cx="63" cy="73" r="9"/><circle cx="78" cy="76" r="9"/><circle cx="71" cy="81" r="10"/><circle cx="71" cy="74" r="4" fill="#f3d795"/></g>
+        <g fill="#8f60a0"><circle cx="48" cy="21" r="9"/><circle cx="41" cy="27" r="8"/><circle cx="54" cy="30" r="8"/><circle cx="48" cy="35" r="9"/><circle cx="48" cy="28" r="3.5" fill="#f4dc9e"/></g>
+      </svg>
     </section>
 
-    <section class="section details" id="detalles" aria-labelledby="details-title">
-      <p class="eyebrow">Reserva la fecha</p>
-      <h2 id="details-title">Los detalles</h2>
-      <div class="detail-grid">
-        <div class="detail-card">
-          <span class="detail-icon" aria-hidden="true">✧</span>
-          <span class="detail-label">Fecha y hora</span>
-          <span class="detail-value">Próximamente</span>
-        </div>
-        <div class="detail-card">
-          <span class="detail-icon" aria-hidden="true">✧</span>
-          <span class="detail-label">Lugar</span>
-          <span class="detail-value">Próximamente</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="section gallery" aria-labelledby="gallery-title">
-      <p class="eyebrow">Un recuerdo para compartir</p>
+    <section class="gallery" aria-labelledby="gallery-title">
+      <p class="section-kicker">Un recuerdo para compartir</p>
       <h2 id="gallery-title">Mis momentos favoritos</h2>
       <div class="photo-grid">
         <figure class="photo-card">
           <img
-            src="WhatsApp%20Image%202026-10-25%20at%209.18.22%20PM%20(1).jpeg"
-            alt="Natalia posa con su vestido lila entre flores"
+            src="WhatsApp%20Image%202026-10-25%20at%209.18.22%20PM.jpeg"
+            alt="Natalia con su vestido lila"
             loading="lazy">
           <figcaption>Un sueño hecho realidad</figcaption>
         </figure>
         <figure class="photo-card">
           <img
             src="WhatsApp%20Image%202026-10-25%20at%209.18.21%20PM.jpeg"
-            alt="Natalia celebra con un vestido rojo de quinceañera"
+            alt="Natalia con su vestido rojo"
             loading="lazy">
           <figcaption>Una noche para recordar</figcaption>
+        </figure>
+        <figure class="photo-card">
+          <img
+            src="WhatsApp%20Image%202026-10-25%20at%209.18.22%20PM%20(1).jpeg"
+            alt="Otro retrato de Natalia con su vestido lila"
+            loading="lazy">
+          <figcaption>Mis quince años</figcaption>
         </figure>
       </div>
     </section>
