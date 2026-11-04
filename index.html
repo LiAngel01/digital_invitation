@@ -94,8 +94,7 @@
       pointer-events: none;
     }
 
-    .cover .floral-corner,
-    .hero-collage {
+    .cover .floral-corner {
       display: none;
     }
 
@@ -133,71 +132,6 @@
       text-shadow: 0 1px 5px rgba(255, 255, 255, 0.95);
     }
 
-    .hero-collage {
-      position: relative;
-      width: min(100%, 610px);
-      height: clamp(365px, 67vw, 525px);
-      margin: 0 auto;
-      isolation: isolate;
-    }
-
-    .portrait {
-      position: absolute;
-      overflow: hidden;
-      margin: 0;
-      border: 4px solid #fff9f5;
-      outline: 1px solid rgba(178, 138, 79, 0.86);
-      background: #d8c0e8;
-      box-shadow: 0 10px 24px rgba(72, 44, 80, 0.22);
-    }
-
-    .portrait img {
-      display: block;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .portrait--center {
-      z-index: 1;
-      top: 4%;
-      left: 22%;
-      width: 56%;
-      height: 87%;
-      border-radius: 48% 48% 8px 8px;
-    }
-
-    .portrait--center img {
-      object-position: center 18%;
-    }
-
-    .portrait--left,
-    .portrait--right {
-      z-index: 2;
-      bottom: 0;
-      width: 35%;
-      height: 59%;
-      border-radius: 48% 48% 5px 5px;
-    }
-
-    .portrait--left {
-      left: 0;
-      transform: rotate(-4deg);
-    }
-
-    .portrait--right {
-      right: 0;
-      transform: rotate(4deg);
-    }
-
-    .portrait--left img {
-      object-position: center 20%;
-    }
-
-    .portrait--right img {
-      object-position: center 20%;
-    }
-
     .birthday-title {
       width: 100%;
       color: #a77a34;
@@ -221,35 +155,6 @@
       font-size: 0.7em;
       font-style: normal;
       text-align: center;
-    }
-
-    .butterfly {
-      position: absolute;
-      z-index: 3;
-      width: 34px;
-      height: 34px;
-      fill: #8d5ca7;
-      filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.8));
-    }
-
-    .butterfly--one {
-      top: 16%;
-      left: 8%;
-      transform: rotate(-18deg);
-    }
-
-    .butterfly--two {
-      top: 44%;
-      right: 7%;
-      width: 27px;
-      transform: rotate(15deg);
-    }
-
-    .butterfly--three {
-      bottom: 7%;
-      left: 17%;
-      width: 25px;
-      transform: rotate(12deg);
     }
 
     .name-plaque {
@@ -486,14 +391,6 @@
         font-size: clamp(0.82rem, 3.8vw, 1.2rem);
       }
 
-      .hero-collage {
-        height: clamp(330px, 92vw, 445px);
-      }
-
-      .portrait {
-        border-width: 3px;
-      }
-
       .birthday-title {
         font-size: clamp(1.45rem, 6.5vw, 2rem);
       }
@@ -610,37 +507,6 @@
         <g fill="#d894bf"><circle cx="71" cy="66" r="11"/><circle cx="63" cy="73" r="9"/><circle cx="78" cy="76" r="9"/><circle cx="71" cy="81" r="10"/><circle cx="71" cy="74" r="4" fill="#f3d795"/></g>
         <g fill="#8f60a0"><circle cx="48" cy="21" r="9"/><circle cx="41" cy="27" r="8"/><circle cx="54" cy="30" r="8"/><circle cx="48" cy="35" r="9"/><circle cx="48" cy="28" r="3.5" fill="#f4dc9e"/></g>
       </svg>
-
-      <div class="hero-collage" aria-label="Retratos de Nathalia con sus vestidos de quinceañera">
-        <figure class="portrait portrait--center">
-          <img
-            src="WhatsApp%20Image%202026-10-25%20at%209.18.21%20PM.jpeg"
-            alt="Nathalia con su vestido rojo de quinceañera"
-            fetchpriority="high">
-        </figure>
-        <figure class="portrait portrait--left">
-          <img
-            src="WhatsApp%20Image%202026-10-25%20at%209.18.22%20PM.jpeg"
-            alt="Nathalia con su vestido lila"
-            fetchpriority="high">
-        </figure>
-        <figure class="portrait portrait--right">
-          <img
-            src="WhatsApp%20Image%202026-10-25%20at%209.18.22%20PM%20(1).jpeg"
-            alt="Nathalia posa con su vestido lila"
-            fetchpriority="high">
-        </figure>
-
-        <svg class="butterfly butterfly--one" viewBox="0 0 40 40" aria-hidden="true">
-          <path d="M19 19C13 5 2 6 5 16c2 6 8 7 14 6-7 2-10 9-5 12 5 3 8-4 7-11 0 7 4 14 9 10 5-4 1-10-6-12 7 0 12-3 12-8 0-10-11-8-17 6Z"/>
-        </svg>
-        <svg class="butterfly butterfly--two" viewBox="0 0 40 40" aria-hidden="true">
-          <path d="M19 19C13 5 2 6 5 16c2 6 8 7 14 6-7 2-10 9-5 12 5 3 8-4 7-11 0 7 4 14 9 10 5-4 1-10-6-12 7 0 12-3 12-8 0-10-11-8-17 6Z"/>
-        </svg>
-        <svg class="butterfly butterfly--three" viewBox="0 0 40 40" aria-hidden="true">
-          <path d="M19 19C13 5 2 6 5 16c2 6 8 7 14 6-7 2-10 9-5 12 5 3 8-4 7-11 0 7 4 14 9 10 5-4 1-10-6-12 7 0 12-3 12-8 0-10-11-8-17 6Z"/>
-        </svg>
-      </div>
 
       <div class="cover-copy">
         <p class="cover-kicker">Estás invitado(a) a<br>celebrar conmigo</p>
